@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaid Daghash - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h2>Zaid Daghash</h2>
+            <p>First Class with Honours in BEng Computer Systems Engineering | Aspiring Software Engineer</p>
+            <a href="#projects" class="btn">Explore My Work</a>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>Graduate with a First Class (Honours) degree in Computer Systems Engineering from the University of Sheffield. I specialize in software development, systems engineering, and security. My key strengths include leadership, problem-solving, and programming in C, Python, Java, and MATLAB.</p>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="card">
+                <h3>Shopping System</h3>
+                <p>Engineered an online shopping system alongside 3 other students using Java Swing and MySQL for a railway models store, achieving streamlined transactions and inventory management. Achieved a Class One grade on this project.</p>
+            </div>
+            <div class="card">
+                <h3>Mechatronics System</h3>
+                <p>Led a team to design, build, and program a mechatronics system using Fusion360 and C, achieving a Class One grade on this project.</p>
+                <video controls width="100%">
+                    <source src="IMG_4863.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="card">
+                <h3>Solar-Powered Ion Drone</h3>
+                <p>Developed prototypes for mitigating space debris using solar-powered ion drones, showcasing innovation and teamwork. Click the image below to see the full image of the prototype.</p>
+                <img src="Screenshot 2024-12-29 162305.png" alt="Solar Powered Ion Drone Prototype" style="width:100%; border-radius: 8px; margin-top: 1rem;" class="thumbnail" onclick="openModal(this)">
+            </div>
+
+            <!-- Modal -->
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="fullImage" src="">
+            </div>
+            <div class="card">
+                <h3>Burglar Alarm System</h3>
+                <p>Directed a team to build and program a burglar alarm system using C, C++, and MATLAB. MATLAB was used in-order to communicate between the GUI and the microcontroller. Facial recognition was also implemented in-order to identify the person attempting to enter the building. Achieved a Class One grade on this project.</p>
+            </div>
+            <div class="card">
+                <h3>Robot Navigation Around a Track</h3>
+                <p>Collaborated with 2 other students to program a robotic vehicle equipped with sensors for obstacle and colour detection, achieving a Class One grade.</p>
+                <video controls width="100%">
+                    <source src="<video controls width="100%">
+                        <source src="IMG_3938.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="card">
+                <h3>Global Engineering Challenge Week</h3>
+                <p>Spearheaded a multi-disciplinary team to design a portable solar panel to meet the energy needs of an indigenous town in Australia, receiving positive feedback from industry professionals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+                <h3>
+                    University of Sheffield
+                    <img src="Sheffield-Logo-02.png" alt="University of Sheffield Logo" class="institution-logo">
+                    
+                </h3>
+            <p>BEng in Computer Systems Engineering - <b>First Class with Honours</b></p>
+            <p><i>September 2021 - July 2024</i></p>
+            <img src="grad.png" alt="University Graduation Certificate" class="uni-certificate">
+        </div>
+        <div class="education-item">
+                <h3>
+                    University Foundation College
+                    <img src="UFC-Logo-1.jpg" alt="University Foundation College Logo" class="institution-logo">
+                </h3>
+                <p>NCUK International Foundation Year (Engineering Pathway) - <b>A*, A*, A, A</b></p>
+                <p><i>September 2020 - June 2021</i></p>
+                <img src="ncuk.png" alt="IFY Certificate" class="ncuk-certificate">
+        </div>
+        <div class="education-item">
+                <h3>
+                    Qatar International School
+                    <img src="QIS-logo-final.webp" alt="Qatar International School Logo" class="institution-logo">
+                </h3>
+                <p>High School Diploma - <b>IGCSE and AS Grades Range: A - C</b></p>
+                <p><i>September 2014 - June 2020</i></p>
+                <img src="qis.jpg" alt="QIS Certificate" class="qis-certificate">
+        </div>
+    </section>
+    
+    <section id="certifications" class="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>
+                <a href = "https://coursera.org/share/90658ee42eaeaf1cc681f744c0fb9ccd" target="_blank"><strong>Introduction to HTML, CSS, & Javascript</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
+            </li>
+            <li>
+                <a href = "https://coursera.org/share/410b1c4d8c63e767a89ff7538fbd2cc8" target="_blank"><strong>Generative AI: Prompt Engineering Basics</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
+            </li>
+            <li>
+                <a href = "https://coursera.org/share/2f94f550cd2552d56b36ec9542eccfb5" target="_blank"><strong>Generative AI: Introduction and Applications</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
+            </li>
+            <li>
+                <a href = "https://coursera.org/share/df65d709e6466b0072d35d5e891d38bb" target="_blank"><strong>Introduction to Artificial Intelligence (AI) (with Honors)</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
+            </li>
+            <li>
+                <a href = "https://coursera.org/share/bcb2d96173dbce759684b3597184c9e7" target="_blank"><strong>Introduction to Software Engineering (with Honors)</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
+            </li>
+            <li>
+                <a href = "https://www.hackerrank.com/certificates/f483b4dd4fd1" target="_blank"><strong>Python (Basic)</strong></a> - <img src="hackerrank-for-developers.webp" alt="IBM Logo" class="hackerrank-logo">
+            </li>
+            <li>
+                <a href = "https://www.hackerrank.com/certificates/29ae2bce4e4a" target="_blank"><strong>Java (Basic)</strong></a> - <img src="hackerrank-for-developers.webp" alt="IBM Logo" class="hackerrank-logo">
+            </li>
+        </ul>
+    </section>
+    
+    
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li><strong>Programming Languages:</strong> C, Java, Python, MATLAB</li>
+            <li><strong>Tools:</strong> IntelliJ IDEA, Netbeans, Spyder, Code::Blocks, ArduinoIDE, Java Swing, MATLAB Simulink</li>
+            <li><strong>Languages:</strong> English (Fluent), Aravic (Native)</li>
+            <li><strong>Soft Skills: Leadership, Communication, Problem Solving, Logical Reasoning, Analytical, Attention to Detail, Team-player</strong></li>
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaborations or inquiries!</p>
+        <ul>
+            <li>Email: <a href="mailto:zaiddaghash@gmail.com">zaiddaghash@gmail.com</a></li>
+            <li>Phone: +974 50252706</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/zaid-daghash" target="_blank">linkedin.com/in/zaid-daghash</a></li>
+            <li>GitHub: <a href="https://github.com/Zaid1201/University-Projects" target="_blank">github.com/Zaid1201</a></li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Zaid Daghash. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
