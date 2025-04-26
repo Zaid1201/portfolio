@@ -29,21 +29,18 @@ header.hero {
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
+    display: flex; /* Ensures the items are flexible and can be centered */
+    justify-content: center; /* Centers the items horizontally */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    list-style: none; /* Removes bullet points */
     padding: 0;
     margin: 0;
 }
 
-.nav-links li {
-    margin: 0 1rem;
-}
 
 .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    transition: color 0.3s;
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Keeps the text color consistent */
 }
 
 .nav-links a:hover {
