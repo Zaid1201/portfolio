@@ -3,163 +3,832 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaid Daghash - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Zaid Daghash - Cyber Security & Computer Systems Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #fff, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: white;
+        }
+
+        .download-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .institution-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .degree-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .institution {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .duration {
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        .grade {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-duration {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid var(--primary);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .cert-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cert-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="hero">
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero-content">
-            <h2>Zaid Daghash</h2>
-            <p>Bachelor of Engineering (BEng) | Computer Systems Engineering Graduate</p>
-            <a href="#projects" class="btn">Explore My Work</a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">ZD</div>
+                <div class="header-text">
+                    <h1>Zaid Daghash</h1>
+                    <p class="subtitle">Cyber Security & Computer Systems Engineer</p>
+                    <div class="contact-info">
+                        <a href="mailto:zaiddaghash@gmail.com" class="contact-item">
+                            📧 zaiddaghash@gmail.com
+                        </a>
+                        <a href="tel:+97450252706" class="contact-item">
+                            📱 +974 50252706
+                        </a>
+                        <a href="https://www.linkedin.com/in/zaid-daghash/" class="contact-item" target="_blank">
+                            💼 LinkedIn
+                        </a>
+                        <a href="https://github.com/Zaid1201" class="contact-item" target="_blank">
+                            💻 GitHub
+                        </a>
+                        <a href="https://tryhackme.com/p/zaiddaghash" class="contact-item" target="_blank">
+                            🔒 TryHackMe
+                        </a>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="download-cv" onclick="downloadCV()">
+                            📄 Download My CV
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <p>Graduate with a First Class (Honours) degree in Computer Systems Engineering from the University of Sheffield. I specialize in software development, systems engineering, and security. My key strengths include leadership, problem-solving, and programming in C, Python, Java, and MATLAB.</p>
-    </section>
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <div class="project-cards">
-            <div class="card">
-                <h3>Shopping System</h3>
-                <p>Engineered an online shopping system alongside 3 other students using Java Swing and MySQL for a railway models store, achieving streamlined transactions and inventory management. Achieved a Class One grade on this project.</p>
-            </div>
-            <div class="card">
-                <h3>Mechatronics System</h3>
-                <p>Led a team to design, build, and program a mechatronics system using Fusion360 and C, achieving a Class One grade on this project.</p>
-                <video controls width="100%">
-                    <source src="IMG_4863.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="card">
-                <h3>Solar-Powered Ion Drone</h3>
-                <p>Developed prototypes for mitigating space debris using solar-powered ion drones, showcasing innovation and teamwork. Click the image below to see the full image of the prototype.</p>
-                <img src="Screenshot 2024-12-29 162305.png" alt="Solar Powered Ion Drone Prototype" style="width:100%; border-radius: 8px; margin-top: 1rem;" class="thumbnail" onclick="openModal(this)">
-            </div>
-
-            <!-- Modal -->
-            <div id="imageModal" class="modal">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img class="modal-content" id="fullImage" src="">
-            </div>
-            <div class="card">
-                <h3>Burglar Alarm System</h3>
-                <p>Directed a team to build and program a burglar alarm system using C, C++, and MATLAB. MATLAB was used in-order to communicate between the GUI and the microcontroller. Facial recognition was also implemented in-order to identify the person attempting to enter the building. Achieved a Class One grade on this project.</p>
-            </div>
-            <div class="card">
-                <h3>Robot Navigation Around a Track</h3>
-                <p>Collaborated with 2 other students to program a robotic vehicle equipped with sensors for obstacle and colour detection, achieving a Class One grade.</p>
-                <video controls width="100%">
-                    <source src="<video controls width="100%">
-                        <source src="IMG_3938.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="card">
-                <h3>Global Engineering Challenge Week</h3>
-                <p>Spearheaded a multi-disciplinary team to design a portable solar panel to meet the energy needs of an indigenous town in Australia, receiving positive feedback from industry professionals.</p>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content fade-in">
+                <p>MSc Cyber Security student at Liverpool John Moores University with a First Class (4.0 GPA) Bachelor's degree in Computer Systems Engineering from the University of Sheffield. I have a strong academic foundation in systems engineering, software development, and security, with extensive experience leading and contributing to multidisciplinary projects that combine technical knowledge with practical problem-solving skills.</p>
+                <br>
+                <p>My expertise spans across machine learning, reinforcement learning, embedded systems, and cybersecurity. I'm passionate about developing innovative solutions that address real-world challenges, from energy consumption prediction to autonomous navigation systems. Currently expanding my knowledge in cybersecurity while seeking opportunities to apply my technical and leadership skills in dynamic environments.</p>
             </div>
         </div>
     </section>
 
-    <section id="education" class="education">
-        <h2>Education</h2>
-        <div class="education-item">
-                <h3>
-                    University of Sheffield
-                    <img src="Sheffield-Logo-02.png" alt="University of Sheffield Logo" class="institution-logo">
-                    
-                </h3>
-            <p>BEng in Computer Systems Engineering - <b>First Class with Honours</b></p>
-            <p><i>September 2021 - July 2024</i></p>
-            <img src="grad.png" alt="University Graduation Certificate" class="uni-certificate">
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <div class="education-header">
+                        <img src="ljmu_logo.jpg" alt="Liverpool John Moores University" class="institution-logo">
+                        <div>
+                            <div class="degree-title">Master of Science - MSc, Cyber Security</div>
+                            <div class="institution">Liverpool John Moores University</div>
+                            <div class="duration">Sep 2025 - Aug 2026</div>
+                        </div>
+                    </div>
+                    <p>Currently pursuing advanced studies in cybersecurity, covering Computer Security, Network Security, Information Security Management, Ethical Hacking, and Secure Systems.</p>
+                </div>
+
+                <div class="education-card fade-in">
+                    <div class="education-header">
+                        <img src="Sheffield-Logo-02.png" alt="University of Sheffield" class="institution-logo">
+                        <div>
+                            <div class="degree-title">Bachelor of Engineering - BEng, Computer Systems Engineering</div>
+                            <div class="institution">University of Sheffield</div>
+                            <div class="duration">Sep 2021 - Jun 2024</div>
+                            <div class="grade">First Class with Honours (4.0 GPA)</div>
+                        </div>
+                    </div>
+                    <p>Comprehensive program covering Systems Engineering, Software Development, Machine Learning, Computer Security, Reinforcement Learning, Mechatronics, and Digital Signal Processing.</p>
+                </div>
+
+                <div class="education-card fade-in">
+                    <div class="education-header">
+                        <img src="ncuk.png" alt="University Foundation College" class="institution-logo">
+                        <div>
+                            <div class="degree-title">NCUK International Foundation Year, Engineering</div>
+                            <div class="institution">University Foundation College</div>
+                            <div class="duration">Sep 2020 - Jun 2021</div>
+                            <div class="grade">A* Engineering Mathematics, A* English, A Chemistry, A Physics</div>
+                        </div>
+                    </div>
+                    <p>Intensive foundation program preparing for engineering studies with focus on advanced mathematics, physics, chemistry, and academic English.</p>
+                </div>
+
+                <div class="education-card fade-in">
+                    <div class="education-header">
+                        <img src="qis.jpg" alt="Qatar International School" class="institution-logo">
+                        <div>
+                            <div class="degree-title">High School Diploma</div>
+                            <div class="institution">Qatar International School</div>
+                            <div class="duration">Sep 2014 - Jun 2020</div>
+                            <div class="grade">10 GCSEs & 4 AS Levels (A - C)</div>
+                        </div>
+                    </div>
+                    <p>Comprehensive secondary education with strong performance in IGCSE and AS Level examinations across Mathematics, Sciences, and Information Technology.</p>
+                </div>
+            </div>
         </div>
-        <div class="education-item">
-                <h3>
-                    University Foundation College
-                    <img src="UFC-Logo-1.jpg" alt="University Foundation College Logo" class="institution-logo">
-                </h3>
-                <p>NCUK International Foundation Year (Engineering Pathway) - <b>A*, A*, A, A</b></p>
-                <p><i>September 2020 - June 2021</i></p>
-                <img src="ncuk.png" alt="IFY Certificate" class="ncuk-certificate">
-        </div>
-        <div class="education-item">
-                <h3>
-                    Qatar International School
-                    <img src="QIS-logo-final.webp" alt="Qatar International School Logo" class="institution-logo">
-                </h3>
-                <p>High School Diploma - <b>IGCSE and AS Grades Range: A - C</b></p>
-                <p><i>September 2014 - June 2020</i></p>
-                <img src="qis.jpg" alt="QIS Certificate" class="qis-certificate">
-        </div>
-    </section>
-    
-    <section id="certifications" class="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>
-                <a href = "https://coursera.org/share/90658ee42eaeaf1cc681f744c0fb9ccd" target="_blank"><strong>Introduction to HTML, CSS, & Javascript</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
-            </li>
-            <li>
-                <a href = "https://coursera.org/share/410b1c4d8c63e767a89ff7538fbd2cc8" target="_blank"><strong>Generative AI: Prompt Engineering Basics</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
-            </li>
-            <li>
-                <a href = "https://coursera.org/share/2f94f550cd2552d56b36ec9542eccfb5" target="_blank"><strong>Generative AI: Introduction and Applications</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
-            </li>
-            <li>
-                <a href = "https://coursera.org/share/df65d709e6466b0072d35d5e891d38bb" target="_blank"><strong>Introduction to Artificial Intelligence (AI) (with Honors)</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
-            </li>
-            <li>
-                <a href = "https://coursera.org/share/bcb2d96173dbce759684b3597184c9e7" target="_blank"><strong>Introduction to Software Engineering (with Honors)</strong></a> - <img src="ibm-logo-black-transparent.png" alt="IBM Logo" class="IBM-logo">
-            </li>
-            <li>
-                <a href = "https://www.hackerrank.com/certificates/f483b4dd4fd1" target="_blank"><strong>Python (Basic)</strong></a> - <img src="hackerrank-for-developers.webp" alt="IBM Logo" class="hackerrank-logo">
-            </li>
-            <li>
-                <a href = "https://www.hackerrank.com/certificates/29ae2bce4e4a" target="_blank"><strong>Java (Basic)</strong></a> - <img src="hackerrank-for-developers.webp" alt="IBM Logo" class="hackerrank-logo">
-            </li>
-        </ul>
-    </section>
-    
-    
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> C, Java, Python, MATLAB</li>
-            <li><strong>Database Managemen:</strong> SQL (MySQL)</li>
-            <li><strong>Tools:</strong> IntelliJ IDEA, Netbeans, Spyder, Code::Blocks, ArduinoIDE, Java Swing, MATLAB Simulink, GitHub, Microsoft SQL Server</li>
-            <li><strong>Languages:</strong> English (Fluent), Aravic (Native)</li>
-            <li><strong>Soft Skills: Leadership, Communication, Problem Solving, Logical Reasoning, Analytical, Attention to Detail, Team-player</strong></li>
-        </ul>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out for collaborations or inquiries!</p>
-        <ul>
-            <li>Email: <a href="mailto:zaiddaghash@gmail.com">zaiddaghash@gmail.com</a></li>
-            <li>Phone: +974 50252706</li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/zaid-daghash" target="_blank">linkedin.com/in/zaid-daghash</a></li>
-            <li>GitHub: <a href="https://github.com/Zaid1201/University-Projects" target="_blank">github.com/Zaid1201</a></li>
-        </ul>
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Reinforcement Learning Project (Academic Research)</div>
+                        <div class="project-duration">Mar 2024 - May 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Implemented and compared Q-learning and SARSA algorithms to train an autonomous agent in different grid environments with deterministic, stochastic, and multi-target reward systems. Designed and tuned hyperparameters (learning rate, discount factor, exploration rate) to analyze algorithm performance across 5000+ episodes. Demonstrated the trade-offs between on-policy and off-policy learning, achieving optimized navigation strategies and improved convergence using policies such as epsilon-greedy and Softmax.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Reinforcement Learning Algorithm Implementation</span>
+                            <span class="skill-tag">Hyperparameter Optimization</span>
+                            <span class="skill-tag">Data Analysis and Visualization</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Application of Statistical Analysis Methods to Determine the Changes in Traffic Flow Rate, Pollutant Level, and Peak Time Patterns in the city of Sheffield: Prior and Post COVID-19 Pandemic Perspectives (Academic Research)</div>
+                        <div class="project-duration">Sep 2023 - May 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">This dissertation investigates how the COVID-19 pandemic affected traffic flow, commuting patterns, and air pollution levels in Sheffield, UK. Using traffic and air quality data, the study employed visual comparison graphs, descriptive statistics, hypothesis testing, and regression analysis. Key findings revealed regional variations in traffic flow and a 50% decrease in NO₂ levels, providing valuable insights for urban planners and policymakers.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Statistical Data Analysis</span>
+                            <span class="skill-tag">Statistical Reporting</span>
+                            <span class="skill-tag">Analytical Skills</span>
+                            <span class="skill-tag">Data Modeling</span>
+                            <span class="skill-tag">Regression Models</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Predicting Household Energy Consumption using Machine Learning Techniques (Academic Research)</div>
+                        <div class="project-duration">Feb 2024 - Apr 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Developed a predictive model for household energy demand using a dataset of over 50,000 entries to help the national grid forecast energy needs. Built and evaluated linear regression and artificial neural network models, achieving near-identical accuracy while identifying linear regression as more efficient. Emphasized ethical aspects of using household data for AI applications.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Data Cleaning & Preprocessing</span>
+                            <span class="skill-tag">Machine Learning Model Development</span>
+                            <span class="skill-tag">Model Evaluation & Validation</span>
+                            <span class="skill-tag">Problem-Solving & Optimization</span>
+                            <span class="skill-tag">Data Ethics & Privacy Awareness</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Shopping System (System Developer</div>
+                        <div class="project-duration">Oct 2023 - Dec 2023</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Developed an online shopping system for a railway models store using Java and MySQL. Designed and visualized system architecture using UML diagrams including class, state, and activity diagrams for comprehensive system modeling.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">UML</span>
+                            <span class="skill-tag">Java Swing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Burglar Alarm System (Project Lead)</div>
+                        <div class="project-duration">Jan 2023 - May 2023</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Directed a team of 4 students through a full project cycle, managing technical deliverables and timelines. Implemented a burglar alarm system using low embedded devices, programmed the functionality using C, and integrated facial recognition using MATLAB.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Object-Oriented Programming</span>
+                            <span class="skill-tag">Systems Design</span>
+                            <span class="skill-tag">UML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Mechatronics Systems (Project Lead)</div>
+                        <div class="project-duration">Nov 2022 - May 2023</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Led a multidisciplinary team in an end-to-end project delivery using a systematic project management approach. Coordinated integration of multiple technologies (C programming, CAD design, sensor systems). Successfully navigated complex technical requirements and delivered a functional mechatronic system</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Autodesk Fusion 360</span>
+                            <span class="skill-tag">Laser Cutting</span>
+                            <span class="skill-tag">Object-Oriented Programming</span>
+                            <span class="skill-tag">Embedded Software Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Solar Powered Ion Drones (University Initiative)</div>
+                        <div class="project-duration">Jan 2023</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Worked in a multi-disciplinary team with five other engineering students on a group project where we came up with the idea of solar powered ion drones to help solve the issue of space debris in low Earth orbit.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Public Speaking</span>
+                            <span class="skill-tag">Presentation Skills</span>
+                            <span class="skill-tag">Document Drafting</span>
+                            <span class="skill-tag">Microsoft PowerPoint</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Line Following Robot (Project Lead)</div>
+                        <div class="project-duration">Feb 2022 - May 2022</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Collaborated with 2 other students to program a robotic vehicle equipped with various sensors to complete specific objectives around a circular track. The vehicle was programmed using C. Achieved a Class One grade on this module.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">MPLAB</span>
+                            <span class="skill-tag">Embedded Software Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <div class="project-title">Portable Solar Panels (University Initiative)</div>
+                        <div class="project-duration">Jan 2022</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Spearheaded a multi-disciplinary team consisting of five other engineering students on a group project where we came up with the idea of a portable solar panel in-order to provide a sustainable and renewable source of energy to aid an indigenous town in Australia.</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Documentation</span>
+                            <span class="skill-tag">Presentation Skills</span>
+                            <span class="skill-tag">Public Speaking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Zaid Daghash. All Rights Reserved.</p>
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">C/C++</span>
+                        <span class="skill-item">MATLAB</span>
+                        <span class="skill-item">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Development Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">VSCode</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">GitLab</span>
+                        <span class="skill-item">IntelliJ IDEA</span>
+                        <span class="skill-item">NetBeans</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Specialized Areas</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">Cyber Security</span>
+                        <span class="skill-item">Embedded Systems</span>
+                        <span class="skill-item">Systems Design</span>
+                        <span class="skill-item">Data Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Core Competencies</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Project Leadership</span>
+                        <span class="skill-item">Problem Solving</span>
+                        <span class="skill-item">Team Collaboration</span>
+                        <span class="skill-item">Analytical Thinking</span>
+                        <span class="skill-item">Bilingual</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card fade-in">
+                    <a href="https://tryhackme.com/certificate/THM-T21YSEOIL2" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Pre Security</div>
+                        <div class="cert-issuer">TryHackMe</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.coursera.org/account/accomplishments/verify/QN3345Y7RS5X" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Generative AI: Introduction and Applications</div>
+                        <div class="cert-issuer">IBM</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.coursera.org/account/accomplishments/verify/989RBVNZRN3Y" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Generative AI: Prompt Engineering Basics</div>
+                        <div class="cert-issuer">IBM</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.coursera.org/account/accomplishments/verify/FCH35ZPVMKD2" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Introduction to Artificial Intelligence (AI) (with Honors)</div>
+                        <div class="cert-issuer">IBM</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.coursera.org/account/accomplishments/verify/UG4URKDKE99N" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Introduction to HTML, CSS, & JavaScript</div>
+                        <div class="cert-issuer">IBM</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.coursera.org/account/accomplishments/verify/K4RE5FTFKH9C" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Introduction to Software Engineering (with Honors)</div>
+                        <div class="cert-issuer">IBM</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.hackerrank.com/certificates/29ae2bce4e4a" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Java (Basic)</div>
+                        <div class="cert-issuer">HackerRank</div>
+                    </a>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <a href="https://www.hackerrank.com/certificates/f483b4dd4fd1" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="cert-title">Python (Basic)</div>
+                        <div class="cert-issuer">HackerRank</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Zaid Daghash. All rights reserved.</p>
+            <p>Cyber Security & Computer Systems Engineer</p>
+        </div>
     </footer>
-</body>
-</html>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
