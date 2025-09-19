@@ -909,6 +909,7 @@
         </div>
     </footer>
 </body>
+    
     <script>
 
         // Download CV function - replace the file path with your actual CV file
@@ -934,80 +935,27 @@
         }
                                                           
         // Function to show documents
-        function showDocument(docId) {
-            const modal = document.getElementById('contentModal');
-            const modalBody = document.getElementById('modalBody');
-    
-            // TODO: Update these paths with your actual file paths
-            let docPath = '';
-            switch(docId) {
-                case 'rl-report':
-                    docPath = RL.pdf; // UPDATE THIS PATH
-                    break;
-                case 'dissertation-report':
-                    docPath = 'path/to/dissertation-report.pdf'; // UPDATE THIS PATH
-                    break;
-                case 'energy-briefing':
-                    docPath = 'path/to/energy-briefing.pdf'; // UPDATE THIS PATH
-                    break;
-                case 'energy-report':
-                    docPath = 'path/to/energy-report.pdf'; // UPDATE THIS PATH
-                    break;
-            }
-    
-            modalBody.innerHTML = `<iframe src="${docPath}" title="Document"></iframe>`;
+        function showDocument(id) {
+          const modal = document.getElementById(id);
+          if (modal) {
             modal.style.display = 'block';
+          }
         }
 
-        // Function to show videos
-        function showVideo(videoId) {
-            const modal = document.getElementById('contentModal');
-            const modalBody = document.getElementById('modalBody');
-    
-            // TODO: Update these paths with your actual video file paths
-            let videoPath = '';
-            switch(videoId) {
-                case 'mechatronics-video':
-                    videoPath = 'path/to/mechatronics-video.mp4'; // UPDATE THIS PATH
-                    break;
-                case 'line-robot-video':
-                    videoPath = 'path/to/line-robot-video.mp4'; // UPDATE THIS PATH
-                    break;
-            }
-    
-            modalBody.innerHTML = `<video controls><source src="${videoPath}" type="video/mp4">Your browser does not support the video tag.</video>`;
-            modal.style.display = 'block';
+        function closeModal(id) {
+          const modal = document.getElementById(id);
+          if (modal) {
+            modal.style.display = 'none';
+          }
         }
 
-        // Function to show images
-        function showImage(imageId) {
-            const modal = document.getElementById('contentModal');
-            const modalBody = document.getElementById('modalBody');
-    
-            // TODO: Update this path with your actual image file path
-            let imagePath = '';
-            switch(imageId) {
-                case 'engineering-hired-image':
-                    imagePath = 'path/to/engineering-hired-image.jpg'; // UPDATE THIS PATH
-                    break;
-            }
-    
-            modalBody.innerHTML = `<img src="${imagePath}" alt="Project Image">`;
-            modal.style.display = 'block';
-        }
-
-        // Function to close modal
-        function closeModal() {
-            document.getElementById('contentModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('contentModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-                            
+        // Close when clicking outside the modal
+        window.onclick = function (event) {
+        const modal = document.getElementById('rl-report');
+        if (event.target === modal) {
+        modal.style.display = 'none';
+  }
+};
+              
     
     </script>
