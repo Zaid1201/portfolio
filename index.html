@@ -296,6 +296,79 @@
             line-height: 1.6;
         }
 
+        /* Project buttons */
+.project-buttons {
+    margin: 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.project-btn {
+    background: var(--primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.project-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Modal styles for documents/images/videos */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 2% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    background: white;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gray);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal-close:hover {
+    color: var(--dark);
+}
+
+.modal iframe, .modal img, .modal video {
+    width: 100%;
+    height: 70vh;
+    border: none;
+    border-radius: 5px;
+}
+
         .skills-tags {
             display: flex;
             flex-wrap: wrap;
@@ -457,7 +530,7 @@
                         </a>
                     </div>
                     <div style="margin-top: 1.5rem;">
-                        <a href="#" class="download-cv" onclick="downloadCV()">
+                        <a href="#" class="download-cv" onclick="downloadCV()" id="downloadCVBtn">
                             📄 Download My CV
                         </a>
                     </div>
@@ -825,6 +898,17 @@
     </footer>
 
     <script>
+
+        // Download CV function - replace the file path with your actual CV file
+        function downloadCV() {
+        // TODO: Replace 'path/to/your/cv.pdf' with the actual path to your CV file
+            const link = document.createElement('a');
+            link.href = 'ZaidDaghash-CV.pdf'; // UPDATE THIS PATH
+            link.download = 'Zaid_Daghash_CV.pdf';
+            link.click();
+        }
+        
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -832,3 +916,11 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
+                    }
+                }
+            }
+        }
+
+                            
+    
+    </script>
