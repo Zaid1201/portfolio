@@ -296,78 +296,7 @@
             line-height: 1.6;
         }
 
-        /* Project buttons */
-.project-buttons {
-    margin: 1rem 0;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
 
-.project-btn {
-    background: var(--primary);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.project-btn:hover {
-    background: var(--secondary);
-    transform: translateY(-2px);
-}
-
-/* Modal styles for documents/images/videos */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-    position: relative;
-    margin: 2% auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 1200px;
-    max-height: 90vh;
-    background: white;
-    border-radius: 10px;
-    overflow-y: auto;
-}
-
-.modal-close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--gray);
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.modal-close:hover {
-    color: var(--dark);
-}
-
-.modal iframe, .modal img, .modal video {
-    width: 100%;
-    height: 70vh;
-    border: none;
-    border-radius: 5px;
-}
 
         .skills-tags {
             display: flex;
@@ -633,10 +562,6 @@
                     </div>
                     <div class="project-content">
                         <p class="project-description">Implemented and compared Q-learning and SARSA algorithms to train an autonomous agent in different grid environments with deterministic, stochastic, and multi-target reward systems. Designed and tuned hyperparameters (learning rate, discount factor, exploration rate) to analyze algorithm performance across 5000+ episodes. Demonstrated the trade-offs between on-policy and off-policy learning, achieving optimized navigation strategies and improved convergence using policies such as epsilon-greedy and Softmax.</p>
-                        <div class="project-buttons">
-                            <button class="project-btn" onclick="showDocument('rl-report')">Show Report</button>
-                            <!-- TODO: Add your Reinforcement Learning report PDF file and update the path in showDocument function -->
-                        </div>
                         <div class="skills-tags">
                             <span class="skill-tag">Reinforcement Learning Algorithm Implementation</span>
                             <span class="skill-tag">Hyperparameter Optimization</span>
@@ -892,14 +817,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal for displaying documents, images, and videos -->
-        <div id="contentModal" class="modal">
-            <div class="modal-content">
-                <span class="modal-close" onclick="closeModal()">&times;</span>
-                <div id="modalBody"></div>
-            </div>
-        </div>
     </section>
 
     <footer>
@@ -933,29 +850,6 @@
                 }
             }
         }
-                                                          
-        // Function to show documents
-        function showDocument(id) {
-          const modal = document.getElementById(id);
-          if (modal) {
-            modal.style.display = 'block';
-          }
-        }
-
-        function closeModal(id) {
-          const modal = document.getElementById(id);
-          if (modal) {
-            modal.style.display = 'none';
-          }
-        }
-
-        // Close when clicking outside the modal
-        window.onclick = function (event) {
-        const modal = document.getElementById('rl-report');
-        if (event.target === modal) {
-        modal.style.display = 'none';
-  }
-};
               
     
     </script>
