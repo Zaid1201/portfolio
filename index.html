@@ -587,6 +587,11 @@
                             <span class="skill-tag">Data Analysis and Visualization</span>
                             <span class="skill-tag">Python</span>
                         </div>
+                        <div style="margin-top: 1.5rem;">
+	                        <a href="ZaidDaghash-CV.pdf" class="download-cv" onclick="downloadCV()" id="downloadCVBtn">
+        	                    View Report
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -854,6 +859,13 @@
             const link = document.createElement('a');
             link.href = 'ZaidDaghash-CV.pdf'; // UPDATE THIS PATH
             link.download = 'Zaid_Daghash_CV.pdf';
+            link.click();
+        }
+
+        function downloadrlreport() {
+            const link = document.createElement('a');
+            link.href = 'rlreport.pdf';
+            link.download = 'rlreport.pdf';
             link.click();
         }
         
