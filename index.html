@@ -609,6 +609,11 @@
                             <span class="skill-tag">Data Modeling</span>
                             <span class="skill-tag">Regression Models</span>
                         </div>
+						<div style="margin-top: 1.5rem;">
+	                        <a href="dissertationreport.pdf" class="download-cv" onclick="downloaddissertationreport()" id="downloadCVBtn">
+        	                    View Report
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -625,6 +630,11 @@
                             <span class="skill-tag">Model Evaluation & Validation</span>
                             <span class="skill-tag">Problem-Solving & Optimization</span>
                             <span class="skill-tag">Data Ethics & Privacy Awareness</span>
+                        </div>
+						<div style="margin-top: 1.5rem;">
+	                        <a href="mlreport.pdf" class="download-cv" onclick="downloadmlreport()" id="downloadCVBtn">
+        	                    View Report
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -868,6 +878,20 @@
             link.download = 'rlreport.pdf';
             link.click();
         }
+
+		function downloaddissertationreport() {
+            const link = document.createElement('a');
+            link.href = 'dissertationreport.pdf';
+            link.download = 'dissertationreport.pdf';
+            link.click();
+        }
+
+		function downloadmlreport() {
+			const link = document.createElement('a');
+			link.href = 'mlreport.pdf';
+			link.download = 'mlreport.pdf';
+			link.click();
+		}
         
         
         // Smooth scrolling for navigation links
