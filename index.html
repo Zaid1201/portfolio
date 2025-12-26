@@ -719,6 +719,11 @@
                             <span class="skill-tag">MPLAB</span>
                             <span class="skill-tag">Embedded Software Programming</span>
                         </div>
+						<div style="margin-top: 1.5rem;">
+	                        <a href="IMG_3938.mp4" class="download-cv" onclick="viewtrack()" id="downloadCVBtn">
+        	                    View Video
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -893,6 +898,14 @@
 			link.download = 'mlreport.pdf';
 			link.click();
 		}
+
+		function viewtrack() {
+			const link = document.createElement('a');
+			link.href = 'IMG_3938.mp4';
+			link.download = 'IMG_3938.mp4';
+			link.click();
+		}
+		
         
         
         // Smooth scrolling for navigation links
