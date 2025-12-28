@@ -709,6 +709,11 @@
                             <span class="skill-tag">Document Drafting</span>
                             <span class="skill-tag">Microsoft PowerPoint</span>
                         </div>
+						<div style="margin-top: 1.5rem;">
+	                        <a href="drone.png" class="download-cv" onclick="viewdrone()" id="downloadCVBtn">
+        	                    View Illustration
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -915,6 +920,13 @@
 			const link = document.createElement('a');
 			link.href = 'IMG_4863.mp4';
 			link.download = 'IMG_4863.mp4';
+			link.click();
+		}
+
+		function viewdrone() {
+			const link = document.createElement('a');
+			link.href = 'drone.png';
+			link.download = 'drone.png';
 			link.click();
 		}
 		
