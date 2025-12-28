@@ -642,7 +642,7 @@
 
                 <div class="project-card fade-in">
                     <div class="project-header">
-                        <div class="project-title">Shopping System (System Developer</div>
+                        <div class="project-title">Shopping System (System Developer)</div>
                         <div class="project-duration">Oct 2023 - Dec 2023</div>
                     </div>
                     <div class="project-content">
@@ -686,6 +686,11 @@
                             <span class="skill-tag">Laser Cutting</span>
                             <span class="skill-tag">Object-Oriented Programming</span>
                             <span class="skill-tag">Embedded Software Programming</span>
+                        </div>
+						<div style="margin-top: 1.5rem;">
+	                        <a href="IMG_4863.mp4" class="download-cv" onclick="viewmech()" id="downloadCVBtn">
+        	                    View Video
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -905,8 +910,14 @@
 			link.download = 'IMG_3938.mp4';
 			link.click();
 		}
+
+		function viewmech() {
+			const link = document.createElement('a');
+			link.href = 'IMG_4863.mp4';
+			link.download = 'IMG_4863.mp4';
+			link.click();
+		}
 		
-        
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
