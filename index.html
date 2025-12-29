@@ -522,7 +522,12 @@
                         </div>
                     </div>
                     <p>Gained a solid foundation in mathematics, programming (C++, Python, Java) and control / embedded systems through lectures, labs and hands‑on projects. Developed skills in system design, robotics, intelligent systems and cybersecurity, with choice of specialist modules in later years to align with my interests. Built experience using industry‑standard tools (CAD / 3D printing / laser-cutting) and carried out an advanced individual project under academic supervision. Also improved problem solving, teamwork, professional communication and practical lab skills. Coursework, exams and practical assessment combined to reinforce theoretical understanding with real world application.</p>
-                </div>
+                	<div style="margin-top: 1.5rem;">
+	                    <a href="ZaidDaghash-BachelorDegreeCertificate.pdf" class="download-cv" onclick="viewbcert()" id="downloadCVBtn">
+        	                View Certificate
+                        </a>
+                    </div>
+				</div>
 
                 <div class="education-card fade-in">
                     <div class="education-header">
@@ -535,7 +540,12 @@
                         </div>
                     </div>
                     <p>Built strong foundations in Mathematics, Physics, Chemistry and English, with hands‑on lab work and coursework to bridge high school and university‑level study. Gained experience solving engineering‑style problems, developing analytical thinking and independent study skills. The programme sharpened my ability to work under exam and project pressures.</p>
-                </div>
+                	<div style="margin-top: 1.5rem;">
+	                    <a href="Foundation Year Certificates_removed.pdf" class="download-cv" onclick="viewncukcert()" id="downloadCVBtn">
+        	                View Certificate
+                        </a>
+                    </div>
+				</div>
 
                 <div class="education-card fade-in">
                     <div class="education-header">
@@ -548,7 +558,12 @@
                         </div>
                     </div>
                     <p>Comprehensive secondary education with strong performance in IGCSE and AS Level examinations.</p>
-                </div>
+                	<div style="margin-top: 1.5rem;">
+	                    <a href="High School Certificates_removed.pdf" class="download-cv" onclick="viewhscert()" id="downloadCVBtn">
+        	                View Certificate
+                        </a>
+                    </div>
+				</div>
             </div>
         </div>
     </section>
@@ -941,8 +956,30 @@
 			link.download = 'ctfcert.jpg';
 			link.click();
 		}
+
+		function viewbcert() {
+			const link = document.createElement('a');
+			link.href = 'ZaidDaghash-BachelorDegreeCertificate.pdf';
+			link.download = 'ZaidDaghash-BachelorDegreeCertificate.pdf';
+			link.click();
+		}
+
+		function viewncukcert() {
+			const link = document.createElement('a');
+			link.href = 'Foundation Year Certificates_removed.pdf';
+			link.download = 'Foundation Year Certificates_removed.pdf';
+			link.click();
+		}
+
+		function viewhscert() {
+			const link = document.createElement('a');
+			link.href = 'High School Certificates_removed.pdf';
+			link.download = 'High School Certificates_removed.pdf';
+			link.click();
+		}
 		
-        
+		
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
