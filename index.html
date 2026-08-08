@@ -47,7 +47,6 @@
             padding: 0 1.5rem;
         }
 
-        /* Subtle Background Glows */
         .bg-glow {
             position: fixed;
             width: 600px;
@@ -60,7 +59,6 @@
             pointer-events: none;
         }
 
-        /* Header / Hero */
         header {
             padding: 5rem 0 3rem;
             position: relative;
@@ -158,7 +156,6 @@
             filter: brightness(1.1);
         }
 
-        /* Sticky Navigation */
         nav {
             background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(12px);
@@ -176,7 +173,7 @@
 
         .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             list-style: none;
             flex-wrap: wrap;
             justify-content: center;
@@ -197,7 +194,6 @@
             background: rgba(56, 189, 248, 0.1);
         }
 
-        /* Sections */
         section {
             padding: 5rem 0;
             border-bottom: 1px solid var(--border-color);
@@ -226,7 +222,6 @@
             border-radius: 2px;
         }
 
-        /* About Section */
         .about-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -249,14 +244,13 @@
             margin-bottom: 0;
         }
 
-        /* Education & Competitions Cards */
-        .education-grid {
+        .card-grid {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
 
-        .education-card {
+        .experience-card, .education-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             padding: 2.25rem;
@@ -267,7 +261,7 @@
             overflow: hidden;
         }
 
-        .education-card::before {
+        .experience-card::before, .education-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -277,20 +271,20 @@
             background: var(--gradient-primary);
         }
 
-        .education-card:hover {
+        .experience-card:hover, .education-card:hover {
             transform: translateY(-4px);
             border-color: rgba(56, 189, 248, 0.3);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        .education-header {
+        .card-header {
             display: flex;
             align-items: flex-start;
             gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        .institution-logo {
+        .company-logo, .institution-logo {
             width: 65px;
             height: 65px;
             border-radius: 12px;
@@ -300,22 +294,16 @@
             border: 1px solid var(--border-color);
         }
 
-        .degree-title {
+        .card-title {
             font-size: 1.35rem;
             font-weight: 700;
             color: var(--text-main);
             line-height: 1.3;
         }
 
-        .institution a {
+        .company-name, .institution {
             color: var(--primary);
             font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .institution a:hover {
-            color: #7dd3fc;
-            text-decoration: underline;
         }
 
         .duration {
@@ -325,7 +313,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        .grade {
+        .badge {
             display: inline-block;
             background: rgba(16, 185, 129, 0.15);
             color: var(--emerald);
@@ -337,13 +325,28 @@
             margin-top: 0.75rem;
         }
 
-        .education-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.75;
+        .card-bullet-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 1rem;
         }
 
-        /* Projects Section */
+        .card-bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .card-bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -419,7 +422,6 @@
             font-weight: 500;
         }
 
-        /* Action Buttons Inside Cards */
         .card-action-btn {
             display: inline-flex;
             align-items: center;
@@ -442,7 +444,6 @@
             transform: translateY(-2px);
         }
 
-        /* Skills Grid */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -487,7 +488,6 @@
             font-weight: 500;
         }
 
-        /* Certifications Grid */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -529,7 +529,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Footer */
         footer {
             background: var(--bg-main);
             color: var(--text-muted);
@@ -538,7 +537,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Styles */
         @media (max-width: 868px) {
             .header-content {
                 flex-direction: column;
@@ -554,7 +552,7 @@
                 justify-content: center;
             }
 
-            .education-header {
+            .card-header {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
@@ -610,7 +608,8 @@
         <div class="container">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience" class="active">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#competitions">Competitions</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -631,36 +630,62 @@
         </div>
     </section>
 
+    <!-- Professional Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="card-grid">
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Maximo / EAM Systems Engineer</div>
+                            <div class="company-name">CHECALCAT JV (China Harbour Engineering Co Ltd) — Qatar</div>
+                            <div class="duration">2026 — Present</div>
+                            <div class="badge">Active Role</div>
+                        </div>
+                    </div>
+                    <ul class="card-bullet-list">
+                        <li>Manage enterprise asset management (EAM) data workflows and system integration utilizing IBM Maximo across critical operational infrastructures.</li>
+                        <li>Enforce Role-Based Access Control (RBAC) and enterprise configuration frameworks to ensure secure user permissions and maintain data integrity.</li>
+                        <li>Monitor system operations, diagnose workflow bottlenecks, and implement database queries (SQL) for asset tracking and reporting.</li>
+                        <li>Design and deploy automated operational workflows to optimize system accuracy and reduce manual administrative overhead.</li>
+                        <li>Bridge complex engineering infrastructure and software application layers to support secure and resilient enterprise management.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="education-grid">
+            <div class="card-grid">
                 
                 <div class="education-card">
-                    <div class="education-header">
+                    <div class="card-header">
                         <img src="ljmu_logo.jpg" alt="Liverpool John Moores University" class="institution-logo">
                         <div>
-                            <div class="degree-title">Master of Science - MSc, Cyber Security</div>
+                            <div class="card-title">Master of Science - MSc, Cyber Security</div>
                             <div class="institution">
                                 <a href="https://www.ljmu.ac.uk/" target="_blank" rel="noopener noreferrer">Liverpool John Moores University</a>
                             </div>
                             <div class="duration">Sep 2025 - Sep 2026</div>
-                            <div class="grade">Predicted: Distinction (4.0 GPA)</div>
+                            <div class="badge">Predicted: Distinction (4.0 GPA)</div>
                         </div>
                     </div>
                     <p>Pursuing advanced postgraduate studies in cyber security with a comprehensive focus on computer security, network security, information security management, ethical hacking, secure systems, and research methods. Coursework included secure protocol design, penetration testing, IDS/Suricata rule development, risk assessments with CVSS/NIST frameworks, and secure system design/implementation.<br><br>My Dissertation evaluated vulnerabilities of five locally deployed LLMs (Llama 3.1 8B, Mistral 7B, DeepSeek-Coder 6.7B, Llama 3 13B, Phi-3 Mini 3B) against adversarial attacks. Built an automated pipeline generating 4,000 responses across 17 attack categories, scored with Llama 3.1 8B. Proposed a tunable output filter reducing attack success rates by up to 100%, validated in real-time, contributing a benchmark and deployable mitigation strategy.</p>
                 </div>
 
                 <div class="education-card">
-                    <div class="education-header">
+                    <div class="card-header">
                         <img src="Sheffield-Logo-02.png" alt="University of Sheffield" class="institution-logo">
                         <div>
-                            <div class="degree-title">Bachelor of Engineering - BEng, Computer Systems Engineering</div>
+                            <div class="card-title">Bachelor of Engineering - BEng, Computer Systems Engineering</div>
                             <div class="institution">
                                 <a href="https://sheffield.ac.uk/" target="_blank" rel="noopener noreferrer">University of Sheffield</a>
                             </div>
                             <div class="duration">Sep 2021 - Jun 2024</div>
-                            <div class="grade">First Class with Honours (4.0 GPA)</div>
+                            <div class="badge">First Class with Honours (4.0 GPA)</div>
                         </div>
                     </div>
                     <p>Gained a solid foundation in mathematics, programming, control/embedded systems, robotics, intelligent systems, and cybersecurity. Built practical skills through labs, CAD/3D printing, laser-cutting, and system design projects, alongside teamwork and professional communication.<br><br>My Dissertation investigated the impact of COVID-19 on traffic flow and pollution in Sheffield, using comparison graphs, descriptive statistics, hypothesis testing, and regression analysis. Findings showed regional shifts in commuting patterns, backward shifts in peak times, and significant changes in NO₂ levels (50% decrease), contributing evidence for policymakers.</p>
@@ -672,15 +697,15 @@
                 </div>
 
                 <div class="education-card">
-                    <div class="education-header">
+                    <div class="card-header">
                         <img src="UFC-Logo-1.jpg" alt="University Foundation College" class="institution-logo">
                         <div>
-                            <div class="degree-title">NCUK International Foundation Year (Engineering)</div>
+                            <div class="card-title">NCUK International Foundation Year (Engineering)</div>
                             <div class="institution">
                                 <a href="https://ufc.edu.qa/" target="_blank" rel="noopener noreferrer">University Foundation College</a>
                             </div>
                             <div class="duration">Sep 2020 - Jun 2021</div>
-                            <div class="grade">Engineering Mathematics: A*, English: A*, Chemistry: A, Physics: A</div>
+                            <div class="badge">Engineering Mathematics: A*, English: A*, Chemistry: A, Physics: A</div>
                         </div>
                     </div>
                     <p>Built strong foundations in Mathematics, Physics, Chemistry and English, with hands-on lab work and coursework to bridge high school and university-level study. Gained experience solving engineering-style problems, developing analytical thinking and independent study skills.</p>
@@ -692,15 +717,15 @@
                 </div>
 
                 <div class="education-card">
-                    <div class="education-header">
+                    <div class="card-header">
                         <img src="QIS-logo-final.webp" alt="Qatar International School" class="institution-logo">
                         <div>
-                            <div class="degree-title">High School Diploma</div>
+                            <div class="card-title">High School Diploma</div>
                             <div class="institution">
                                 <a href="https://www.qisweb.qis.org/" target="_blank" rel="noopener noreferrer">Qatar International School</a>
                             </div>
                             <div class="duration">Sep 2014 - Jun 2020</div>
-                            <div class="grade">10 GCSEs & 4 AS Levels (A - C)</div>
+                            <div class="badge">10 GCSEs & 4 AS Levels (A - C)</div>
                         </div>
                     </div>
                     <p>Comprehensive secondary education with strong performance in IGCSE and AS Level examinations.</p>
@@ -719,15 +744,15 @@
         <div class="container">
             <h2 class="section-title">Competitions</h2>
             <div class="education-card">
-                <div class="education-header">
+                <div class="card-header">
                     <img src="ncsalogo.jpg" alt="NCSA Logo" class="institution-logo">
                     <div>
-                        <div class="degree-title">Capture The Flag (CTF)</div>
+                        <div class="card-title">Capture The Flag (CTF)</div>
                         <div class="institution">
                             <a href="https://ncsa.gov.qa/en" target="_blank" rel="noopener noreferrer">National Cyber Security Agency</a>
                         </div>
                         <div class="duration">2025</div>
-                        <div class="grade">Ranked in the Top 10</div>
+                        <div class="badge">Ranked in the Top 10</div>
                     </div>
                 </div>
                 <p>An incredible experience that brought together students, professionals, and teams from across the country to tackle real-world cybersecurity challenges, including reverse engineering, OSINT, digital forensics, and incident analysis. Being part of this event gave me a deeper appreciation of how critical hands-on exercises are in developing practical skills for defending against modern cyber threats.</p>
@@ -907,6 +932,7 @@
                         <span class="skill-item">Penetration Testing</span>
                         <span class="skill-item">NIST & CVSS Frameworks</span>
                         <span class="skill-item">Wireshark</span>
+                        <span class="skill-item">Role-Based Access Control (RBAC)</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -921,9 +947,12 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Systems & Data Engineering</h3>
+                    <h3>Enterprise Systems & Automation</h3>
                     <div class="skill-list">
                         <span class="skill-item">IBM Maximo (EAM)</span>
+                        <span class="skill-item">Enterprise Data Workflows</span>
+                        <span class="skill-item">Workflow Automation</span>
+                        <span class="skill-item">System & Network Monitoring</span>
                         <span class="skill-item">Embedded Systems</span>
                         <span class="skill-item">Machine Learning</span>
                         <span class="skill-item">Data Analysis</span>
